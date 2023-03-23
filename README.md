@@ -32,3 +32,5 @@ In this course, we can study topics such as:
 - Collections
 - Inferential Lambda
 - String Operations
+
+## Modular calculator
