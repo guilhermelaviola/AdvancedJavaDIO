@@ -3,7 +3,7 @@ Java content from Digital Innovation One course.
 
 In this course, we can study topics such as:
 
-# Part 1:
+## Part 1:
 - Basic Function
 - Function Composition
 - Anonymous Class Function
@@ -12,7 +12,7 @@ In this course, we can study topics such as:
 - Immutability
 - Factorials (Factorial Memorization and Recursive Factorial)
 
-# Part 2:
+## Part 2:
 - Consumer
 - Function
 - Higher Order Function
@@ -20,12 +20,12 @@ In this course, we can study topics such as:
 - Predicate
 - Supplier
 
-# Part 3:
+## Part 3:
 - Future
 - Parallel Stream
 - Threads
 
-# Part 4:
+## Part 4:
 - Java Inference
 
 ## Part 5:
