@@ -30,6 +30,7 @@ In this course, we can study topics such as:
 
 ## Part 5:
 - Collections
+- HttoClient
 - Inferential Lambda
 - String Operations
 
