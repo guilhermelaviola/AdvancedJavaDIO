@@ -92,6 +92,59 @@ public class HttpClientExample {
 	}
 	
 	private static void connectAkamaiHttp2Client() throws Exception {
-
+		System.out.println("Running HTTP/2 example...");
+		try {
+			HttpClient httpClient = HttpClient.newBuilder()
+					.version(HttpClient.Version.HTTP_2)
+					.proxy(ProxySelector.getDefault())
+					.build();
+			
+			long start = System.currentTimeMillis();
+			
+			HttpRequest mainRequest = HttpRequest.newBuilder()
+					.uri(URI.create("https://http2.akamai.com/demo/h2_demo_frame.html"))
+					.build();
+			
+			HttpResponse<String> response = httpClient.send(mainRequest, HttpResponse.BodyHandlers.ofString());
+			
+			System.out.println("Status Code: " + response.statusCode());
+			System.out.println("Response Headers: " + response.headers());
+			String responseBody = response.body();
+			System.out.println(responseBody);
+			
+			List<Future> future = new ArrayList<>();
+			
+			responseBody
+					.lines()
+					.filter(line -> line.trim().startsWith("<img height"))
+					.map(line -> line.substring(line.indexOf("src='") + 5, line.indexOf("'/>")))
+					.forEach(image -> {
+						Future<?> imgFuture = executor.submit(() -> {
+							HttpRequest imgRequest = HttpRequest.newBuilder()
+									.uri(URI.create("https://http2.akamai.com" + image))
+									.build();
+							try {
+								HttpResponse<String> imageResponse = httpClient.send(imgRequest, HttpResponse.BodyHandlers.ofString());
+								System.out.println("Loaded Image: " + image + " Status Code: " + imageResponse.statusCode());
+							} catch(IOException | InterruptedException e) {
+								System.out.println("Error message during the request to recover the image: " + image);
+							}
+					});
+						future.add(imgFuture);
+						System.out.println("Future for image submitted..." + image);
+		});
+			future.forEach(f -> {
+				try {
+					f.get();
+				} catch (InterruptedException | ExecutionException e) {
+					System.out.println("Error while waiting the future image load!");
+				}
+				});
+			
+			long end = System.currentTimeMillis();
+			System.out.println("Total waiting time: " + (end - start) + "ms.");
+			} finally {
+				executor.shutdown();
+			}
 	}
 }
