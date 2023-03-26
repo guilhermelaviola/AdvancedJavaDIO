@@ -30,7 +30,7 @@ public class HttpClientExample {
 	public static void main(String[] args) throws Exception {
 		// Testing
 		connectAkamaiHttp1Client();
-		connectAkamaiHttp2Client();
+		//connectAkamaiHttp2Client();
 		connectAndPrintURLJavaOracle();
 	}
 
@@ -110,7 +110,7 @@ public class HttpClientExample {
 			String responseBody = response.body();
 			System.out.println(responseBody);
 			
-			List<Future> future = new ArrayList<>();
+			List<Future<?>> future = new ArrayList<>();
 			
 			responseBody
 					.lines()
@@ -121,6 +121,7 @@ public class HttpClientExample {
 							HttpRequest imgRequest = HttpRequest.newBuilder()
 									.uri(URI.create("https://http2.akamai.com" + image))
 									.build();
+							
 							try {
 								HttpResponse<String> imageResponse = httpClient.send(imgRequest, HttpResponse.BodyHandlers.ofString());
 								System.out.println("Loaded Image: " + image + " Status Code: " + imageResponse.statusCode());
