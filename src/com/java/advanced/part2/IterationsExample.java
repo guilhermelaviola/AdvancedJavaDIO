@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// In Java, iteration is a technique used to sequence through a block of code repeatedly
+// until a specific condition either exists or no longer exists. Iterations are a very
+// common approach used with loops.
 public class IterationsExample {
 	
 	public static void main(String[] args) {

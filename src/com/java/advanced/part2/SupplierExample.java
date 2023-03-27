@@ -2,6 +2,10 @@ package com.java.advanced.part2;
 
 import java.util.function.Supplier;
 
+// Supplier is a functional interface whose SAM (Single Abstract Method) is get().
+// One of the most frequent use cases of this interface is to defer the execution of some code.
+// The Optional class has a few methods that accept a Supplier as a parameter,
+// such as Optional.or(), Optional.
 public class SupplierExample {
 	public static void main(String[] args) {
 		// Creating two instances of the Person class
@@ -14,8 +18,9 @@ public class SupplierExample {
 	}
 }
 
+// Person class
 class Person {
-	// Person attributes
+	// Attributes
 	private String name;
 	private Integer age;
 	

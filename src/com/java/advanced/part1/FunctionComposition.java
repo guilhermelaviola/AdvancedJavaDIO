@@ -2,6 +2,7 @@ package com.java.advanced.part1;
 
 import java.util.Arrays;
 
+//Using Streams in an Array
 public class FunctionComposition {
 	public static void main(String[] args) {
 		

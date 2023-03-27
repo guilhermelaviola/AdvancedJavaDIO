@@ -2,6 +2,8 @@ package com.java.advanced.part2;
 
 import java.util.function.Function;
 
+// Represents a function that accepts one argument and produces a result.
+// This is a functional interface whose functional method is apply(Object).
 public class FunctionExample {
 	public static void main(String[] args) {
 		// Defining basic functions with the Function class
