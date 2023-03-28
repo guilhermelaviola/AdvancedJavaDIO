@@ -5,8 +5,12 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.stream.Collectors;
 
+// Type inference is a Java compiler's ability to look at each method invocation
+// and corresponding declaration to determine the type argument (or arguments) that
+// make the invocation applicable.
+
 // Usage of the var keyword
-//var keyword CAN be used:
+// var keyword CAN be used:
 	// - As local and initiated variables;
 	// - Supporting variable of the enhanced for;
 	// - Supporting variable of iterative for;
@@ -16,7 +20,6 @@ import java.util.stream.Collectors;
 	// - At a class level;
 	// - As a parameter;
 	// - In local non-initialized variables.
-
 public class JavaInferenceExample {
 	
 	public static void main(String[] args) {
