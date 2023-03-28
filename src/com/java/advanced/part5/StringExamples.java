@@ -2,7 +2,9 @@ package com.java.advanced.part5;
 
 import java.util.stream.Collectors;
 
+// The String class has a set of built-in methods that you can use on strings.
 public class StringExamples {
+	// Here are a few examples:
 	public static void main(String[] args) {
 		// String blank
 		String space = " ";
