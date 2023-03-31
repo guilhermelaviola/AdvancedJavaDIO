@@ -13,7 +13,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadFactory;
-
+/*
+ Web scraper example
+ What does a web scraper do? Web scraping is the process of using bots to extract content
+ and data from a website. Unlike screen scraping, which only copies pixels displayed onscreen,
+ web scraping extracts underlying HTML code and, with it, data stored in a database.
+ The scraper can then replicate entire website content elsewhere.
+ */
 public class HttpClientExample {
 
 	static ExecutorService executor = Executors.newFixedThreadPool(6, new ThreadFactory() {
@@ -28,7 +34,16 @@ public class HttpClientExample {
 	});
 
 	public static void main(String[] args) throws Exception {
-		// Testing
+		/* Testing
+		You can't execute both methods at once, otherwise you'll get the following error:
+		
+		Exception in thread "main" java.util.concurrent.RejectedExecutionException:
+		Task java.util.concurrent.FutureTask@32eebfca[Not completed,
+		task = java.util.concurrent.Executors$RunnableAdapter@23fe1d71[Wrapped task =
+		com.java.advanced.part5.HttpClientExample$$Lambda$243/0x0000000800d626b0@28ac3dc3]]
+		rejected from java.util.concurrent.ThreadPoolExecutor@4e718207[Terminated, pool size = 0,
+		active threads = 0, queued tasks = 0, completed tasks = 361] 
+		*/
 		connectAkamaiHttp1Client();
 		//connectAkamaiHttp2Client();
 		connectAndPrintURLJavaOracle();
