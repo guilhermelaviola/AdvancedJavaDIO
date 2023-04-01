@@ -1,5 +1,5 @@
-# JavaDIO
-Java content from Digital Innovation One course.
+# AdvancedJavaDIO
+Advanced Java content from Digital Innovation One course.
 
 In this course, we can study topics such as:
 
@@ -30,7 +30,7 @@ In this course, we can study topics such as:
 
 ## Part 5:
 - Collections
-- HttoClient
+- HttpClient
 - Inferential Lambda
 - String Operations
 
